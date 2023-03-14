@@ -9,7 +9,7 @@ pipenv install
 RUN Command:
 python3 get_metadata.py
 
-Using below CURL commands also we can get the metadtaoutput in JSON format or the instance :
+Using below CURL commands also we can get the metadtaoutput in JSON format for the instance :
 
 Create Token
 TOKEN=`curl --request PUT "http://169.254.169.254/latest/api/token" --header "X-aws-ec2-metadata-token-ttl-seconds: 21600"` 
