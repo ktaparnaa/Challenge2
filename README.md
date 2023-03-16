@@ -5,9 +5,10 @@ We need to write code that will query the meta data of an instance within AWS or
 Install below required softwares in VM inorder to exeute the python code:
 sudo pip3 install pipenv
 pipenv install
+sudo pip3 install requests
 
 RUN Command:
-python3 get_metadata.py
+python3 instmetdata.py
 
 Using below CURL commands also we can get the metadtaoutput in JSON format for the instance :
 
@@ -26,3 +27,5 @@ curl --write-out "\n" --request GET "http://169.254.169.254/latest/user-data" --
 Dynamic data contains information about the instance identity documents,types of information included in dynamic data are account ID, region, and certificates
 curl --write-out "\n" --request GET "http://169.254.169.254/latest/dynamic/instance-identity/document" --header "X-aws-ec2-metadata-token: $TOKEN"
 
+Store output in json format :
+curl --write-out "\n" --request GET "http://169.254.169.254/latest/dynamic/instance-identity/document" --header "X-aws-ec2-metadata-token: $TOKEN"-H "Accept: application/json" -o metadata.json
